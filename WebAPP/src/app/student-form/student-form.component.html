@@ -1,0 +1,72 @@
+<div class="pricing-box-container" >
+    <div class="pricing-box  text-center" style="border-radius: 30px;">
+        <h5>Student Form</h5>
+        <strong>Information</strong>
+        <ul class="features-list">
+                <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+                <input type="hidden" name="id" [value]="service.formData.id" />
+                <mat-form-field class="example-full-width">
+                    <mat-label>Code:</mat-label>
+                    <textarea matInput
+                        name="code" #code="ngModel" [(ngModel)]="service.formData.code"
+                        required [class.invalid]="code.invalid && code.touched"
+                    ></textarea>
+                </mat-form-field>
+            
+            
+                <mat-form-field class="example-full-width">
+                    <mat-label>First Name:</mat-label>
+                    <textarea matInput
+                        name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName"
+                        required [class.invalid]="firstName.invalid && firstName.touched"
+                    ></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Last Name:</mat-label>
+                    <textarea matInput
+                        name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName"
+                        required [class.invalid]="lastName.invalid && lastName.touched"
+                    ></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email:</mat-label>
+                    <textarea matInput
+                        name="email" #email="ngModel" [(ngModel)]="service.formData.email"
+                        required [class.invalid]="email.invalid && email.touched"
+                    ></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address:</mat-label>
+                    <textarea matInput
+                        name="address" #address="ngModel" [(ngModel)]="service.formData.address"
+                        required [class.invalid]="address.invalid && address.touched"
+                    ></textarea>
+                </mat-form-field>
+                <br/>
+                <mat-label>Gender:</mat-label>&nbsp;
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    name="gender" #gender="ngModel" [(ngModel)]="service.formData.gender">
+                    <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender">
+                        {{gender}}
+                    </mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Image link:</mat-label>
+                    <textarea matInput
+                        name="image" #image="ngModel" [(ngModel)]="service.formData.image"
+                        required [class.invalid]="image.invalid && image.touched"
+                    ></textarea>
+                </mat-form-field>
+                <br/>
+                <button class="btn-primary" [disabled]="form.invalid"><mat-icon>save_alt</mat-icon></button>
+                &nbsp;
+                <button class="btn-primary" (click)="close()"><mat-icon>close</mat-icon></button>
+                </form>
+        </ul>
+        
+    </div>
+</div>

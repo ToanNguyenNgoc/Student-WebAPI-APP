@@ -1,0 +1,25 @@
+
+	<div class="pricing-box-container" >
+		<div *ngFor="let data of servive.list">
+			<div class="pricing-box pricing-box-bg-image text-center" style="border-radius: 30px;">
+				<h5>Student Detail</h5>
+				<!-- <p class="price"><sup>$</sup>0<sub>/mo</sub></p> -->
+				<strong>{{data.code}}</strong>
+				<ul class="features-list">
+					<li>
+						<img *ngIf="data?.image" src="{{data?.image}}" style="height: 120px; width: 120px; border-radius: 60px;" />
+					</li>
+					<li>Fisrt Name:<strong>{{data.firstName}}</strong> </li>
+					<li>Last Name:<strong>{{data.lastName}}</strong></li>
+					<li>Gender:<strong>{{data.gender}}</strong></li>
+					<li>Email:<strong>{{data.email}}</strong></li>
+					<li>Address:<strong>{{data.address}}</strong></li>
+				</ul>
+				<button style="background-color: rgb(206, 76, 76);" class="btn-primary" (click)="onDelete(data.id)">
+					<mat-icon>delete</mat-icon></button>
+					&nbsp;
+				<button style="background-color: rgb(49, 201, 221);" class="btn-primary" (click)="populateForm(data)">
+					<mat-icon>edit</mat-icon></button>
+			</div>
+		</div>
+	</div>
